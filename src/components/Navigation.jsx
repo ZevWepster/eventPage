@@ -4,15 +4,25 @@ import {
   Flex,
   Heading,
   Input,
+  ListItem,
   Select,
   useDisclosure,
+  Box,
+  List,
 } from "@chakra-ui/react";
 import { AddEventModal } from "./AddEvent";
 import { useNavigate } from "react-router-dom";
 
-export const Navigation = ({ onAddEvent, onSearch, onFilter, categories }) => {
+export const Navigation = ({
+  onAddEvent,
+  onSearch,
+  onFilter,
+  categories,
+  events,
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [searchQuery, setSearchQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const navigate = useNavigate();
@@ -21,6 +31,23 @@ export const Navigation = ({ onAddEvent, onSearch, onFilter, categories }) => {
     const query = e.target.value;
     setSearchQuery(query);
     onSearch(query);
+
+    if (query.trim() !== "") {
+      const filteredSuggestions = events
+        .filter((event) => event.title)
+        .filter((event) =>
+          event.title.toLowerCase().includes(query.toLowerCase())
+        );
+      setSuggestions(filteredSuggestions.slice(0, 5)); // Limit to top 5 suggestions
+    } else {
+      setSuggestions([]);
+    }
+  };
+
+  const handleSuggestionClick = (title) => {
+    setSearchQuery(title);
+    onSearch(title);
+    setSuggestions([]);
   };
 
   const handleCategoryChange = (e) => {
@@ -34,6 +61,7 @@ export const Navigation = ({ onAddEvent, onSearch, onFilter, categories }) => {
     setSelectedCategory("");
     onSearch("");
     onFilter("");
+    setSuggestions([]);
 
     navigate("/");
   };
@@ -69,8 +97,10 @@ export const Navigation = ({ onAddEvent, onSearch, onFilter, categories }) => {
           Add Event
         </Button>
 
-        <Flex gap={4} alignItems="center" flexWrap="wrap">
+        <Flex gap={4} alignItems="center" flexWrap="wrap" position="relative">
           <Input
+            id="search-input"
+            name="searchQuery"
             placeholder="Search events..."
             value={searchQuery}
             onChange={handleSearchChange}
@@ -79,7 +109,37 @@ export const Navigation = ({ onAddEvent, onSearch, onFilter, categories }) => {
             color="black"
           />
 
+          {suggestions.length > 0 && (
+            <Box
+              position="absolute"
+              top="100%"
+              left="0"
+              bg="white"
+              color="black"
+              width="200px"
+              border="1px solid #ccc"
+              borderRadius="md"
+              mt={1}
+              zIndex={10}
+            >
+              <List spacing={1}>
+                {suggestions.map((suggestion) => (
+                  <ListItem
+                    key={suggestion.id}
+                    padding={2}
+                    _hover={{ bg: "gray.100", cursor: "pointer" }}
+                    onClick={() => handleSuggestionClick(suggestion)}
+                  >
+                    {suggestion.name}
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+          )}
+
           <Select
+            id="category-filter"
+            name="category"
             placeholder="Filter by Category"
             value={selectedCategory}
             onChange={handleCategoryChange}

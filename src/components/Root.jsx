@@ -54,6 +54,7 @@ export const Root = () => {
         onSearch={handleSearch}
         onFilter={handleFilter}
         categories={categories}
+        events={events}
       />
       <Outlet context={{ events, filteredEvents, categories }} />
     </Box>
