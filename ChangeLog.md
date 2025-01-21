@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.0] - 21-01-2025
+
+### Added
+
+- **More mock events**: Added more events for experimenting with search bar suggestions (not functional yet).
+
+### Debugged
+
+- **Categories > Add FormLabel**: Developer console gave 3 issues with id of categories being the same, issues solved. They still persist in the EditForm
+
 ## [1.0.0] - 20-01-2025
 
 ### Added

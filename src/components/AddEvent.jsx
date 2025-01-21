@@ -68,7 +68,6 @@ export const AddEventModal = ({ isOpen, onClose, onAddEvent }) => {
 
   const handleSubmit = async () => {
     try {
-      // Ensure that categoryIds are integers
       const updatedFormData = {
         ...formData,
         categoryIds: formData.categoryIds.map((id) => parseInt(id, 10)),
@@ -134,68 +133,75 @@ export const AddEventModal = ({ isOpen, onClose, onAddEvent }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} onAddEvent={onAddEvent}>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Add New Event</ModalHeader>
+        <ModalHeader id="add-event-header">Add New Event</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <FormControl mb={4}>
-            <FormLabel>Title</FormLabel>
+            <FormLabel htmlFor="title">Title</FormLabel>
             <Input
               name="title"
               value={formData.title}
               onChange={handleChange}
+              id="title"
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel>Description</FormLabel>
+            <FormLabel htmlFor="description">Description</FormLabel>
             <Textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
+              id="description"
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel>Image URL</FormLabel>
+            <FormLabel htmlFor="image">Image URL</FormLabel>
             <Input
               name="image"
               value={formData.image}
               onChange={handleChange}
+              id="image"
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel>Location</FormLabel>
+            <FormLabel htmlFor="location">Location</FormLabel>
             <Input
               name="location"
               value={formData.location}
               onChange={handleChange}
+              id="location"
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel>Start Time</FormLabel>
+            <FormLabel htmlFor="startTime">Start Time</FormLabel>
             <Input
               type="datetime-local"
               name="startTime"
               value={formData.startTime}
               onChange={handleChange}
+              id="startTime"
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel>End Time</FormLabel>
+            <FormLabel htmlFor="endTime">End Time</FormLabel>
             <Input
               type="datetime-local"
               name="endTime"
               value={formData.endTime}
               onChange={handleChange}
+              id="endTime"
             />
           </FormControl>
-          <FormControl mb={4}>
-            <FormLabel>Categories</FormLabel>
-            <Stack spacing={2}>
+          <FormControl as="fieldset" mb={4}>
+            <FormLabel as="legend">Categories</FormLabel>
+            <Stack spacing={2} aria-labelledby="categories-label">
               {categories.map((category) => (
                 <Checkbox
                   key={category.id}
+                  id={`category-${category.id}`}
                   isChecked={formData.categoryIds.includes(category.id)}
                   onChange={() => handleCategoryChange(category.id)}
                 >

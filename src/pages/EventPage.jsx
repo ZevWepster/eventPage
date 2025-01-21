@@ -184,51 +184,60 @@ export const EventPage = () => {
 
   return (
     <Box padding={5}>
-      <Image
-        src={event.image}
-        alt={event.title}
-        boxSize="200px"
-        objectFit="cover"
-        mb={5}
-      />
-      <Heading as="h2" size="lg" mb={3}>
-        {event.title}
-      </Heading>
-      <Text fontSize="lg" mb={3}>
-        <strong>Description:</strong> {event.description}
-      </Text>
-      <Text fontSize="lg" mb={3}>
-        <strong>Location:</strong> {event.location}
-      </Text>
-      <Text fontSize="lg" mb={3}>
-        <strong>Start:</strong> {new Date(event.startTime).toLocaleString()}
-      </Text>
-      <Text fontSize="lg" mb={3}>
-        <strong>End:</strong> {new Date(event.endTime).toLocaleString()}
-      </Text>
-      <Text fontSize="lg" mb={3}>
-        <strong>Categories:</strong> {getCategoryNames(event.categoryIds)}
-      </Text>
-      {creator && (
-        <>
-          <Text fontSize="lg" mb={3}>
-            <strong>Created by:</strong> {creator.name}
-          </Text>
-          <Image
-            src={creator.image}
-            alt={creator.name}
-            boxSize="100px"
-            objectFit="cover"
-            mb={3}
-          />
-        </>
-      )}
-      <Button colorScheme="blue" onClick={handleEdit} mr={3}>
-        Edit
-      </Button>
-      <Button colorScheme="red" onClick={() => setIsDeleting(true)}>
-        Delete
-      </Button>
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        minH="100vh"
+        p={5}
+      >
+        <Image
+          src={event.image}
+          alt={event.title}
+          boxSize="200px"
+          objectFit="cover"
+          mb={5}
+        />
+        <Heading as="h2" size="lg" mb={3}>
+          {event.title}
+        </Heading>
+        <Text fontSize="lg" mb={3}>
+          <strong>Description:</strong> {event.description}
+        </Text>
+        <Text fontSize="lg" mb={3}>
+          <strong>Location:</strong> {event.location}
+        </Text>
+        <Text fontSize="lg" mb={3}>
+          <strong>Start:</strong> {new Date(event.startTime).toLocaleString()}
+        </Text>
+        <Text fontSize="lg" mb={3}>
+          <strong>End:</strong> {new Date(event.endTime).toLocaleString()}
+        </Text>
+        <Text fontSize="lg" mb={3}>
+          <strong>Categories:</strong> {getCategoryNames(event.categoryIds)}
+        </Text>
+        {creator && (
+          <>
+            <Text fontSize="lg" mb={3}>
+              <strong>Created by:</strong> {creator.name}
+            </Text>
+            <Image
+              src={creator.image}
+              alt={creator.name}
+              boxSize="100px"
+              objectFit="cover"
+              mb={3}
+            />
+          </>
+        )}
+        <Button colorScheme="blue" onClick={handleEdit} mr={3}>
+          Edit
+        </Button>
+        <Button colorScheme="red" onClick={() => setIsDeleting(true)}>
+          Delete
+        </Button>
+      </Box>
 
       <Modal isOpen={isEditing} onClose={() => setIsEditing(false)}>
         <ModalOverlay />

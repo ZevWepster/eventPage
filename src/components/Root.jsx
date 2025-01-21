@@ -20,10 +20,11 @@ export const Root = () => {
   }, []);
 
   const handleSearch = (query) => {
-    if (!query) {
+    const lowerCaseQuery = typeof query === "string" ? query.toLowerCase() : "";
+
+    if (!lowerCaseQuery) {
       setFilteredEvents(events);
     } else {
-      const lowerCaseQuery = query.toLowerCase();
       const filtered = events.filter((event) =>
         event.title.toLowerCase().includes(lowerCaseQuery)
       );
