@@ -130,19 +130,6 @@
       "location": "Open Field, 45 Sunset Blvd.",
       "startTime": "2025-09-05T20:00:00.000000Z",
       "endTime": "2025-09-05T23:00:00.000000Z"
-    },
-    {
-      "id": "1737472096599",
-      "title": "test",
-      "description": "test",
-      "image": "https://i.pinimg.com/736x/3d/2f/af/3d2faf4e3188d34a9fcdc00df59e77b0.jpg",
-      "location": "buiten",
-      "startTime": "2025-01-23T18:08",
-      "endTime": "2025-01-23T20:08",
-      "categoryIds": [
-        1,
-        3
-      ]
     }
   ],
   "categories": [
