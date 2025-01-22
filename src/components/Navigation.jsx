@@ -9,6 +9,7 @@ import {
   useDisclosure,
   Box,
   List,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import { AddEventModal } from "./AddEvent";
 import { useNavigate } from "react-router-dom";
@@ -79,29 +80,30 @@ export const Navigation = ({
         alignItems="center"
         flexWrap="wrap"
       >
-        <Heading
-          as="button"
-          size="md"
-          bg="blue.500"
-          color="white"
-          px={4}
-          py={2}
-          borderRadius="md"
-          _hover={{ bg: "blue.600", textDecoration: "none" }}
-          _active={{ bg: "blue.700" }}
-          aria-label="Go to Event Dashboard"
-          onClick={handleHomeButtonClick}
-          display="flex"
-          alignItems="center"
-        >
-          <FaHome style={{ marginRight: "8px" }} />
-          Event Dashboard
-        </Heading>
+        <ButtonGroup gap="4">
+          <Heading
+            as="button"
+            size="md"
+            bg="blue.500"
+            color="white"
+            px={4}
+            py={2}
+            borderRadius="md"
+            _hover={{ bg: "blue.600", textDecoration: "none" }}
+            _active={{ bg: "blue.700" }}
+            aria-label="Go to Event Dashboard"
+            onClick={handleHomeButtonClick}
+            display="flex"
+            alignItems="center"
+          >
+            <FaHome style={{ marginRight: "8px" }} />
+            Event Dashboard
+          </Heading>
 
-        <Button colorScheme="green" onClick={onOpen} w="25%">
-          Add Event
-        </Button>
-
+          <Button colorScheme="green" onClick={onOpen} w="25%">
+            Add Event
+          </Button>
+        </ButtonGroup>
         <Flex gap={4} alignItems="center" flexWrap="wrap" position="relative">
           <Input
             id="search-input"

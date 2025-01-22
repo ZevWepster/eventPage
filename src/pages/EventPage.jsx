@@ -295,8 +295,8 @@ export const EventPage = () => {
                 onChange={handleEditChange}
               />
             </FormControl>
-            <FormControl>
-              <FormLabel>Categories</FormLabel>
+            <FormControl as="fieldset">
+              <FormLabel as="legend">Categories</FormLabel>
               <CheckboxGroup
                 value={editData.categoryIds.map((id) => id.toString())}
                 onChange={(newCategoryIds) => {
@@ -316,6 +316,7 @@ export const EventPage = () => {
                         key={category.id}
                         value={category.id.toString()}
                         isChecked={isChecked}
+                        id={`category-${category.id}`}
                       >
                         {category.name}
                       </Checkbox>
