@@ -1,6 +1,22 @@
 # Changelog
 
-## [1.0.0] - 21-01-2025
+## [1.0.3] - 22-01-2025
+
+### Added
+
+- **Search bar suggestions**: Suggestions now show and are clickable.
+- **Home Button Icon**: Added the Home icon using react-icons.
+
+### Debugged
+
+-**Page Errors**: Duplicate form field id in the same form. Checkboxes edit form. **PROBLEM SOLVED**
+
+### Changed
+
+- **Styling for EventPage**: Styled the EventPage.jsx for better readability.
+- **Date Notation**: Edited the start/end time in the jsonfile to the conform notation.
+
+## [1.0.2] - 21-01-2025
 
 ### Added
 
@@ -10,7 +26,7 @@
 
 - **Categories > Add FormLabel**: Developer console gave 3 issues with id of categories being the same, issues solved. They still persist in the EditForm
 
-## [1.0.0] - 20-01-2025
+## [1.0.1] - 20-01-2025
 
 ### Added
 
