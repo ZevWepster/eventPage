@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { AddEventModal } from "./AddEvent";
 import { useNavigate } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 
 export const Navigation = ({
   onAddEvent,
@@ -90,7 +91,10 @@ export const Navigation = ({
           _active={{ bg: "blue.700" }}
           aria-label="Go to Event Dashboard"
           onClick={handleHomeButtonClick}
+          display="flex"
+          alignItems="center"
         >
+          <FaHome style={{ marginRight: "8px" }} />
           Event Dashboard
         </Heading>
 

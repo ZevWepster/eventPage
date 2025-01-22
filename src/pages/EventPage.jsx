@@ -26,6 +26,7 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -191,8 +192,11 @@ export const EventPage = () => {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        minH="100vh"
-        p={5}
+        minH="50vh"
+        p={6}
+        boxShadow="dark-lg"
+        rounded="md"
+        bg="white"
       >
         <Image
           src={event.image}
@@ -233,12 +237,14 @@ export const EventPage = () => {
             />
           </>
         )}
-        <Button colorScheme="blue" onClick={handleEdit} mr={3}>
-          Edit
-        </Button>
-        <Button colorScheme="red" onClick={() => setIsDeleting(true)}>
-          Delete
-        </Button>
+        <ButtonGroup gap="4">
+          <Button colorScheme="blue" onClick={handleEdit} mr={3}>
+            Edit Event
+          </Button>
+          <Button colorScheme="red" onClick={() => setIsDeleting(true)}>
+            Delete Event
+          </Button>
+        </ButtonGroup>
       </Box>
 
       <Modal isOpen={isEditing} onClose={() => setIsEditing(false)}>

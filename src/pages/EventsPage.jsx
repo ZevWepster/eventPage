@@ -52,7 +52,7 @@ export const EventsPage = () => {
               border="1px solid #ccc"
               padding={3}
               borderRadius="md"
-              boxShadow="md"
+              boxShadow="lg"
               transition="transform 0.2s"
               _hover={{ transform: "scale(1.05)", boxShadow: "lg" }}
             >
