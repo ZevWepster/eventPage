@@ -44,10 +44,11 @@ export const Navigation = ({
     }
   };
 
-  const handleSuggestionClick = (title) => {
-    setSearchQuery(title);
-    onSearch(title);
+  const handleSuggestionClick = (suggestion) => {
+    setSearchQuery(suggestion.title);
+    onSearch(suggestion.title);
     setSuggestions([]);
+    navigate(`/event/${suggestion.id}`);
   };
 
   const handleCategoryChange = (e) => {
@@ -130,7 +131,7 @@ export const Navigation = ({
                     _hover={{ bg: "gray.100", cursor: "pointer" }}
                     onClick={() => handleSuggestionClick(suggestion)}
                   >
-                    {suggestion.name}
+                    {suggestion.title}
                   </ListItem>
                 ))}
               </List>

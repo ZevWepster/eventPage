@@ -60,7 +60,9 @@ export const EventPage = () => {
         const categoriesData = await categoriesRes.json();
         const usersData = await usersRes.json();
 
-        const event = eventsData.find((event) => event.id === eventId);
+        const event = eventsData.find(
+          (event) => event.id.toString() === eventId
+        );
         if (!event) {
           setError(true);
           setLoading(false);
