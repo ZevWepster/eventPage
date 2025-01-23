@@ -22,12 +22,12 @@ To get started, follow these steps:
 1. Open two terminals.
 2. In **Terminal 1**, navigate to the main project folder:
    ```bash
-   cd /EventPage
+   cd /eventPage
    npm run dev
    ```
 3. In **Terminal 2**, navigate to the `src` folder:
    ```bash
-   cd /EventPage/src
+   cd /eventPage/src
    json-server --watch events.json --port 3001
    ```
 4. Once both commands are running, open the localhost link provided by **Terminal 1** in your browser.
