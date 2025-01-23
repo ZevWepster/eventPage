@@ -327,11 +327,12 @@ export const EventPage = () => {
             </FormControl>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" onClick={handleEditSubmit} mr={3}>
-              Save
-            </Button>
             <Button variant="ghost" onClick={() => setIsEditing(false)}>
               Cancel
+            </Button>
+
+            <Button colorScheme="blue" onClick={handleEditSubmit} mr={3}>
+              Save
             </Button>
           </ModalFooter>
         </ModalContent>

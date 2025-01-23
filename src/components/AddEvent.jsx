@@ -212,9 +212,6 @@ export const AddEventModal = ({ isOpen, onClose, onAddEvent }) => {
           </FormControl>
         </ModalBody>
         <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
-            Submit
-          </Button>
           <Button
             variant="ghost"
             onClick={() => {
@@ -223,6 +220,10 @@ export const AddEventModal = ({ isOpen, onClose, onAddEvent }) => {
             }}
           >
             Cancel
+          </Button>
+
+          <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+            Submit
           </Button>
         </ModalFooter>
       </ModalContent>
